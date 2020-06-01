@@ -94,7 +94,6 @@
             android:layout_weight="4"
             android:layout_height="wrap_content"
             android:hint="문자로 보낼 내용"
-            android:inputType="phone"
             />
         <Button
             android:id="@+id/sendToBtn"

@@ -22,5 +22,8 @@ class NicknameModifyActivity : AppCompatActivity() {
 
         }
 
+        val myContent = intent.getStringExtra("content")
+        nicknameEdt.setText(myContent)
+
     }
 }

@@ -18,9 +18,25 @@ class MainActivity : AppCompatActivity() {
 
         nickNameBtn.setOnClickListener {
 
+
             val myIntent = Intent(this, NicknameModifyActivity::class.java)
             startActivityForResult(myIntent, REQ_MES_CODE)
 
+
+        }
+
+        nickNameBtn.setOnClickListener {
+
+
+            var inputContent = nickView.text.toString()
+            if(inputContent == "본인 닉네임 표시")
+            {
+                inputContent = ""
+            }
+
+            val myIntent = Intent(this, NicknameModifyActivity::class.java)
+            myIntent.putExtra("content", inputContent)
+            startActivityForResult(myIntent, REQ_MES_CODE)
 
         }
 
@@ -34,11 +50,12 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
         sendToBtn.setOnClickListener {
             val phoneNumber = phoneNumEdt.text.toString()
             val message = smsEdt.text.toString()
-            val myuri = Uri.parse("sendto:${phoneNumber}")
-            val myIntent = Intent(Intent.ACTION_DIAL, myuri)
+            val myuri = Uri.parse("smsto:${phoneNumber}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myuri)
             myIntent.putExtra("sms_body", message)
             startActivity(myIntent)
 
